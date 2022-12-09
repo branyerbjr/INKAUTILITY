@@ -1,0 +1,39 @@
+.fondo{
+    -fx-background-color:
+            linear-gradient(#3F60E6, #3F60E6),
+            linear-gradient(#3F60E6 60%, #3f60e0 30%, #7993f9 100%);
+         -fx-border-radius: 10px;
+        -fx-background-insets: 0,1,2;
+        -fx-padding: 3 30 3 30;
+        -fx-text-fill: black;
+        -fx-font-size: 14px;
+
+}
+
+.boton{
+     -fx-background-color:
+             #000000,
+             linear-gradient(#7ebcea, #2f4b8f),
+             linear-gradient(#426ab7, #263e75),
+             linear-gradient(#395cab, #223768);
+     -fx-background-insets: 0,1,2,3;
+     -fx-background-radius: 3,2,2,2;
+     -fx-padding: 12 30 12 30;
+     -fx-text-fill: white;
+     -fx-font-size: 12px;
+}
+
+.genero{
+     -fx-background-color:
+             #000000,
+             linear-gradient(#7ebcea, #2f4b8f),
+             linear-gradient(#426ab7, #263e75),
+             linear-gradient(#395cab, #223768);
+     -fx-background-insets: 0,1,2,3;
+     -fx-background-radius: 3,2,2,2;
+     -fx-padding: 12 30 12 30;
+     -fx-text-fill: white;
+     -fx-font-size: 12px;
+}
+
+
