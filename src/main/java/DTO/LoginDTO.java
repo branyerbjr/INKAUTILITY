@@ -28,7 +28,7 @@ public class LoginDTO {
             metodos = new UsuarioDAO();
             user = metodos.login(email,pass);
             if (user.getEmail()!=null && user.getPass()!= null){
-
+                
 
             }else {}
         }else {}
