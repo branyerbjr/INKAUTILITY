@@ -1,2 +1,4 @@
-package DTO;public class RegisterDTO {
+package DTO;
+
+public class RegisterDTO {
 }

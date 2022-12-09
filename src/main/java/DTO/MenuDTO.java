@@ -1,2 +1,4 @@
-package DTO;public class MenuDTO {
+package DTO;
+
+public class MenuDTO {
 }
