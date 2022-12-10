@@ -42,6 +42,7 @@ public class LoginDTO {
                 stage.setResizable(false);
                 stage.setTitle("Menu");
                 stage.setScene(scene);
+                menuDTO.datosLog();
                 stage.show();
                 stage.setOnCloseRequest(e -> menuDTO.closeWindows());
                 Stage myStage = (Stage) this.LoginButton.getScene().getWindow();

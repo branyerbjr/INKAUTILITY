@@ -2,6 +2,8 @@ package DAO;
 
 import Models.Usuario;
 import com.google.gson.*;
+import dev.inkautility.MenuDTO;
+import javafx.scene.control.Alert;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,7 +27,7 @@ public class UsuarioDAO {
             cs.setString(1, email);
             cs.setString(2, pass);
             ResultSet rs= cs.executeQuery();
-            if (rs.next()) {
+            if(rs.next()) {
                 l.setIdUsuario(rs.getInt("idUSUARIO"));
                 l.setNombres(rs.getString("NOMBRES"));
                 l.setApellidos(rs.getString("APELLIDOS"));
@@ -34,6 +36,7 @@ public class UsuarioDAO {
                 l.setPass(rs.getString("PASSWORD"));
                 l.setGenero(rs.getByte("GENERO"));
                 l.setMovil(rs.getString("MOVIL"));
+                MenuDTO menuDTO = new MenuDTO(l);
             }
         } catch (SQLException e) {
             System.out.println(e.toString());
@@ -64,7 +67,11 @@ public class UsuarioDAO {
                 cs.execute();
             }else{System.out.println("Error de json ");}
         } catch (JsonIOException | JsonSyntaxException | IOException | SQLException e) {
-            //falta
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setTitle("Registro");
+            alert.setContentText("Error de registro");
+            alert.showAndWait();
             System.out.println("Error de registro "+e);
         }
     }
