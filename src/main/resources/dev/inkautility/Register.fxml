@@ -8,19 +8,19 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="300.0" style="-fx-border-radius: 15;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DTO.LoginDTO">
+<AnchorPane prefHeight="400.0" prefWidth="300.0" style="-fx-border-radius: 100%;" styleClass="fondo" stylesheets="@../../Assets/CSS/Registro.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DTO.LoginDTO">
    <children>
-      <TextField fx:id="EmailF_R" layoutX="70.0" layoutY="110.0" promptText="Email" />
+      <TextField fx:id="EmailF_R" layoutX="70.0" layoutY="110.0" prefHeight="30.0" prefWidth="173.0" promptText="Email" stylesheets="@../../Assets/CSS/Registro.css" />
       <TextField fx:id="DNIF_R" layoutX="70.0" layoutY="230.0" promptText="DNI" />
       <PasswordField fx:id="PassF1_R" layoutX="70.0" layoutY="150.0" promptText="Contraseña" />
-      <PasswordField fx:id="PassF2_R" layoutX="70.0" layoutY="190.0" promptText="Repite la Contraseña" />
-      <TextField fx:id="CellularF_R" layoutX="70.0" layoutY="270.0" promptText="N° Telefono" />
-      <ComboBox fx:id="GeneroCB_R" layoutX="98.0" layoutY="310.0" prefHeight="25.0" prefWidth="104.0" promptText="Genero" />
-      <ImageView fitHeight="90.0" fitWidth="100.0" layoutX="95.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <PasswordField fx:id="PassF2_R" layoutX="70.0" layoutY="188.0" promptText="Repite la Contraseña" />
+      <TextField fx:id="CellularF_R" layoutX="70.0" layoutY="271.0" promptText="N° Telefono" />
+      <ComboBox fx:id="GeneroCB_R" layoutX="84.0" layoutY="311.0" prefHeight="30.0" prefWidth="146.0" promptText="Genero" styleClass="genero" stylesheets="@../../Assets/CSS/Registro.css" />
+      <ImageView fitHeight="124.0" fitWidth="136.0" layoutX="84.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Assets/INKALOGO-black.png" />
          </image>
       </ImageView>
-      <Button fx:id="BtnRegistrar_R" layoutX="100.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" styleClass="buttonRegistre" stylesheets="@../../Assets/CSS/Styles.css" text="Registrar" />
+      <Button fx:id="BtnRegistrar_R" layoutX="96.0" layoutY="369.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="122.0" styleClass="boton" stylesheets="@../../Assets/CSS/Registro.css" text="Registrar" textFill="WHITE" />
    </children>
 </AnchorPane>
