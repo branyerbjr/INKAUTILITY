@@ -1,0 +1,8 @@
+/* CardSoft Style CSS */
+.fondo{
+    -fx-background-color:
+             linear-gradient(#3F60E6, #3F60E6),
+             linear-gradient(#3F60E6 60%, #3f60e0 30%, #2f78b5 100%);
+     -fx-text-fill: white;
+}
+
