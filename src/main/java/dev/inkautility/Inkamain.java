@@ -9,13 +9,14 @@ import java.io.IOException;
 
 public class Inkamain extends Application {
     @Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Inkamain.class.getResource("Login.fxml"));
+    public void start(Stage stage) throws Exception{
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setResizable(false);
         stage.setTitle("Inicio Sesion");
         stage.setScene(scene);
         stage.show();
+        //new Routes(stage);
     }
     public static void main(String[] args) {
         launch(args);

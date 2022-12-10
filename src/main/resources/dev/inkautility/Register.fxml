@@ -8,7 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="300.0" style="-fx-border-radius: 100%;" styleClass="fondo" stylesheets="@../../Assets/CSS/Registro.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DTO.LoginDTO">
+<AnchorPane prefHeight="400.0" prefWidth="300.0" style="-fx-border-radius: 100%;" styleClass="fondo" stylesheets="@../../Assets/CSS/Registro.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.inkautility.RegisterDTO">
    <children>
       <TextField fx:id="EmailF_R" layoutX="70.0" layoutY="110.0" prefHeight="30.0" prefWidth="173.0" promptText="Email" stylesheets="@../../Assets/CSS/Registro.css" />
       <TextField fx:id="DNIF_R" layoutX="70.0" layoutY="230.0" promptText="DNI" />
@@ -21,6 +21,6 @@
             <Image url="@../../Assets/INKALOGO-black.png" />
          </image>
       </ImageView>
-      <Button fx:id="BtnRegistrar_R" layoutX="96.0" layoutY="369.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="122.0" styleClass="boton" stylesheets="@../../Assets/CSS/Registro.css" text="Registrar" textFill="WHITE" />
+      <Button fx:id="BtnRegistrar_R" layoutX="96.0" layoutY="369.0" mnemonicParsing="false" onAction="#ValidationAction" prefHeight="26.0" prefWidth="122.0" styleClass="boton" stylesheets="@../../Assets/CSS/Registro.css" text="Registrar" textFill="WHITE" />
    </children>
 </AnchorPane>

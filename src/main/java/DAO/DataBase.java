@@ -11,7 +11,7 @@ public class DataBase {
     Connection con;
     URLConnection api;
     URL ruta;
-    String url = "jdbc:mysql://localhost:3306/A-count";
+    String url = "jdbc:mysql://localhost:3306/inkautility";
     String user = "root";
     String pass = "";
 

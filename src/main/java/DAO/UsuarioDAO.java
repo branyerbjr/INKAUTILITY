@@ -53,7 +53,7 @@ public class UsuarioDAO {
                 String apell_Paterno = rootobj.get("apellidoPaterno").getAsString();
                 String apell_Materno = rootobj.get("apellidoMaterno").getAsString();
                 String nombres = rootobj.get("nombres").getAsString();
-                cs = conMysql.prepareCall("{call REGISTRAR_USUARIO(?,?,?,?,?,?,?}");
+                cs = conMysql.prepareCall("{call REGISTRAR_USUARIO(?,?,?,?,?,?,?)}");
                 cs.setString(1, nombres);
                 cs.setString(2, apell_Paterno+" "+apell_Materno);
                 cs.setString(3, dni);
@@ -67,6 +67,28 @@ public class UsuarioDAO {
             //falta
             System.out.println("Error de registro "+e);
         }
+    }
 
+    public void Recovery(String email, String dni){
+        CallableStatement cs;
+        try {
+            cs = conMysql.prepareCall("{call RECOVERY_SESION(?,?)}");
+            cs.setString(1, email);
+            cs.setString(2, dni);
+            ResultSet rs= cs.executeQuery();
+            if (rs.next()) {
+                cs = conMysql.prepareCall("{call DELETE_PASS(?)}");
+                cs.setString(1, dni);
+            }
+        } catch (SQLException e) {}
+    }
+
+    public void Password(String dni, String pass){
+        CallableStatement cs;
+        try {
+            cs = conMysql.prepareCall("{call UPDATE_PASSWORD(?,?}");
+            cs.setString(1, dni);
+            cs.setString(2, pass);
+        }catch (SQLException e){}
     }
 }

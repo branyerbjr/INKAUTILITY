@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox fillHeight="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="243.0" style="-fx-background-radius: 8px;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DTO.LoginDTO">
+<HBox fillHeight="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="243.0" style="-fx-background-radius: 8px;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.inkautility.LoginDTO">
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="300.0" style="-fx-border-radius: 15;">
          <children>
@@ -40,7 +40,7 @@
                   <Font name="Roboto" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="Register_L" layoutX="81.0" layoutY="350.0" text="REGISTRATE">
+            <Label fx:id="Register_L" accessibleRole="BUTTON" layoutX="81.0" layoutY="350.0" onMouseClicked="#registerAction" text="REGISTRATE">
                <font>
                   <Font name="Roboto" size="14.0" />
                </font>

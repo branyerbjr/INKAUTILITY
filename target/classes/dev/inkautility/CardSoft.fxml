@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 
 
-<AnchorPane prefHeight="200.0" prefWidth="180.0" style="-fx-border-radius: 20;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DTO.MenuDTO">
+<AnchorPane prefHeight="200.0" prefWidth="180.0" style="-fx-border-radius: 20;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.inkautility.MenuDTO">
    <children>
       <VBox prefHeight="326.0" prefWidth="200.0">
          <children>

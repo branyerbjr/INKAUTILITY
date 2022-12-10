@@ -5,12 +5,10 @@ module dev.inkautility {
     requires java.sql;
     requires mysql.connector.j;
     requires com.google.gson;
+    requires com.jfoenix;
 
 
     opens dev.inkautility to javafx.fxml;
     exports dev.inkautility;
-    opens DTO to javafx.fxml;
-    exports DTO;
-
 
 }
