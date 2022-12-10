@@ -15,16 +15,16 @@
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="300.0" style="-fx-border-radius: 15;">
          <children>
-            <TextField fx:id="FEmail_L" layoutX="47.0" layoutY="177.0" prefHeight="23.0" prefWidth="159.0" promptText="Email">
+            <TextField id="inputEmail" fx:id="FEmail_L" layoutX="47.0" layoutY="177.0" prefHeight="23.0" prefWidth="159.0" promptText="Email" styleClass="inputLogin" stylesheets="@../../Assets/CSS/Styles.css">
                <font>
                   <Font name="Roboto" size="12.0" />
                </font></TextField>
-            <PasswordField fx:id="FPass_L" layoutX="46.0" layoutY="219.0" prefHeight="23.0" prefWidth="159.0" promptText="Contraseña">
+            <PasswordField fx:id="FPass_L" layoutX="46.0" layoutY="219.0" prefHeight="23.0" prefWidth="159.0" promptText="Contraseña" stylesheets="@../../Assets/CSS/Styles.css">
                <font>
                   <Font name="Roboto" size="12.0" />
                </font>
             </PasswordField>
-            <Button fx:id="LoginButton" alignment="CENTER" contentDisplay="CENTER" layoutX="76.0" layoutY="272.0" mnemonicParsing="false" onAction="#loginAction" style="-fx-background-radius: 8px;" text="Iniciar Sesion" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+            <Button fx:id="LoginButton" alignment="CENTER" contentDisplay="CENTER" layoutX="76.0" layoutY="272.0" mnemonicParsing="false" onAction="#loginAction" style="-fx-background-radius: 8px;" styleClass="buttonLogin" stylesheets="@../../Assets/CSS/Styles.css" text="Iniciar Sesion" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
                <font>
                   <Font name="Roboto" size="14.0" />
                </font></Button>
@@ -35,7 +35,7 @@
                <image>
                   <Image url="@../../Assets/INKALOGO-black.png" />
                </image></ImageView>
-            <Label fx:id="Recovery_L" layoutX="47.0" layoutY="312.0" text="¿Olvidaste tu contraseña?">
+            <Label fx:id="Recovery_L" layoutX="47.0" layoutY="312.0" stylesheets="@../../Assets/CSS/Styles.css" text="¿Olvidaste tu contraseña?">
                <font>
                   <Font name="Roboto" size="14.0" />
                </font>
