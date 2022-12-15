@@ -16,6 +16,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Border;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class LoginDTO {
     UsuarioDAO metodos;
@@ -42,7 +43,7 @@ public class LoginDTO {
                 stage.setResizable(false);
                 stage.setTitle("Menu");
                 stage.setScene(scene);
-                menuDTO.datosLog();
+                menuDTO.datosLog(user);
                 stage.show();
                 stage.setOnCloseRequest(e -> menuDTO.closeWindows());
                 Stage myStage = (Stage) this.LoginButton.getScene().getWindow();
@@ -75,17 +76,34 @@ public class LoginDTO {
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setResizable(false);
+            stage.initStyle(StageStyle.TRANSPARENT);
             stage.setTitle("Registro");
             stage.setScene(scene);
             stage.show();
             stage.setOnCloseRequest(e -> registerDTO.closeWindows());
             Stage myStage = (Stage) this.Register_L.getScene().getWindow();
             myStage.close();
-            //System.out.println("se hizo click");
         }
     }
+    @FXML
+    protected void UpdatePass(MouseEvent event)throws Exception{
+        if (event.getButton() == MouseButton.PRIMARY){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("RecoveryPass.fxml"));
+            Parent root = loader.load();
+            RecoveyDTO recoveyDTO  = loader.getController();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setResizable(false);
+            stage.initStyle(StageStyle.TRANSPARENT);
+            stage.setTitle("Recovery Password");
+            stage.setScene(scene);
+            stage.show();
+            stage.setOnCloseRequest(e -> recoveyDTO.closeWindows());
+            Stage myStage = (Stage) this.Recovery_L.getScene().getWindow();
+            myStage.close();
+        }
 
-
-    public void closeWindows() {
     }
+
+    public void closeWindows() {}
 }

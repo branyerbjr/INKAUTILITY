@@ -1,69 +1,74 @@
 package dev.inkautility;
 
 import DAO.UsuarioDAO;
+import Models.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class RegisterDTO {
+
+public class RecoveyDTO {
     UsuarioDAO metodos;
-    @FXML
-    TextField EmailF_R,PassF1_R,PassF2_R,DNIF_R,CellularF_R;
-    @FXML
-    ComboBox GeneroCB_R;
-    @FXML
-    Button BtnRegistrar_R;
-    @FXML
-    ImageView BtnBack_R;
+    Usuario user;
 
+    @FXML
+    TextField EmailF_RP,DNIF_RP;
+    @FXML
+    Button BtnRecovery_RP;
+    @FXML
+    ImageView BtnBack_RP;
 
-
-    public void ValidationAction(ActionEvent event)throws Exception{
-        String email = EmailF_R.getText();
-        String pass1 = PassF1_R.getText();
-        String pass2 = PassF2_R.getText();
-        String dni = DNIF_R.getText();
-        String tel = CellularF_R.getText();
-        Byte genero = 1;
-        if (!"".equals(email)|| !"".equals(pass1)||!"".equals(pass2)||!"".equals(dni)||!"".equals(tel)){
-            if (pass1.equals(pass2)){
-                metodos =new UsuarioDAO();
-                metodos.RegiUser(dni,email,pass1,tel,genero);
+    public void ValidationPass(ActionEvent event)throws Exception{
+        String email = EmailF_RP.getText();
+        String dni = DNIF_RP.getText();
+        if (!"".equals(email)|| !"".equals(dni)){
+            metodos = new UsuarioDAO();
+            user = metodos.Recovery(email,dni);
+            if (user.getEmail()!=null && user.getDni()!= null){
+                TextInputDialog Dpass = new TextInputDialog();
+                Dpass.setTitle("Recovery Password");
+                Dpass.setHeaderText("Ingrese la nueva contraseña");
+                Dpass.showAndWait();
+                String pass = Dpass.getResult();
+                metodos.Password(user.getIdUsuario(),pass);
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
                 Parent root = loader.load();
                 LoginDTO loginDTO = loader.getController();
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
                 stage.setResizable(false);
-                stage.setTitle("lOGIN");
+                stage.setTitle("Menu");
                 stage.setScene(scene);
                 stage.show();
                 stage.setOnCloseRequest(e -> loginDTO.closeWindows());
-                Stage myStage = (Stage) this.BtnRegistrar_R.getScene().getWindow();
+                Stage myStage = (Stage) this.BtnRecovery_RP.getScene().getWindow();
                 myStage.close();
             }else {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setHeaderText(null);
-                alert.setTitle("Registro");
-                alert.setContentText("No coinciden");
-                alert.showAndWait();}
+                alert.setTitle("Recovery");
+                alert.setContentText("No coinciden con ni una cuenta");
+                alert.showAndWait();
+            }
         }else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText(null);
-            alert.setTitle("Registro");
+            alert.setTitle("Recovery");
             alert.setContentText("Datos Incompletos");
             alert.showAndWait();
         }
 
     }
-
     @FXML
     protected void Back(MouseEvent event)throws Exception{
         if (event.getButton() == MouseButton.PRIMARY){
@@ -76,9 +81,10 @@ public class RegisterDTO {
             stage.setScene(scene);
             stage.show();
             stage.setOnCloseRequest(e -> loginDTO.closeWindows());
-            Stage myStage = (Stage) this.BtnBack_R.getScene().getWindow();
+            Stage myStage = (Stage) this.BtnBack_RP.getScene().getWindow();
             myStage.close();
         }
     }
+
     public void closeWindows(){}
 }

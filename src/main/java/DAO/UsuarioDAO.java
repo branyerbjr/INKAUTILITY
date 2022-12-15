@@ -2,9 +2,7 @@ package DAO;
 
 import Models.Usuario;
 import com.google.gson.*;
-import dev.inkautility.MenuDTO;
 import javafx.scene.control.Alert;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -33,10 +31,9 @@ public class UsuarioDAO {
                 l.setApellidos(rs.getString("APELLIDOS"));
                 l.setDni(rs.getString("DNI"));
                 l.setEmail(rs.getString("EMAIL"));
-                l.setPass(rs.getString("PASSWORD"));
+                l.setPass(rs.getString("CONTRASEÑA"));
                 l.setGenero(rs.getByte("GENERO"));
                 l.setMovil(rs.getString("MOVIL"));
-                MenuDTO menuDTO = new MenuDTO(l);
             }
         } catch (SQLException e) {
             System.out.println(e.toString());
@@ -67,7 +64,7 @@ public class UsuarioDAO {
                 cs.execute();
             }else{System.out.println("Error de json ");}
         } catch (JsonIOException | JsonSyntaxException | IOException | SQLException e) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setTitle("Registro");
             alert.setContentText("Error de registro");
@@ -76,7 +73,8 @@ public class UsuarioDAO {
         }
     }
 
-    public void Recovery(String email, String dni){
+    public Usuario Recovery(String email, String dni){
+        Usuario l = new Usuario();
         CallableStatement cs;
         try {
             cs = conMysql.prepareCall("{call RECOVERY_SESION(?,?)}");
@@ -84,18 +82,37 @@ public class UsuarioDAO {
             cs.setString(2, dni);
             ResultSet rs= cs.executeQuery();
             if (rs.next()) {
-                cs = conMysql.prepareCall("{call DELETE_PASS(?)}");
-                cs.setString(1, dni);
+                l.setIdUsuario(rs.getInt("idUSUARIO"));
+                l.setDni(rs.getString("DNI"));
+                l.setEmail(rs.getString("EMAIL"));
             }
-        } catch (SQLException e) {}
+        } catch (SQLException e) {e.printStackTrace();}
+        return l;
     }
 
-    public void Password(String dni, String pass){
+    public void Password(int id, String pass){
         CallableStatement cs;
         try {
-            cs = conMysql.prepareCall("{call UPDATE_PASSWORD(?,?}");
-            cs.setString(1, dni);
+            cs = conMysql.prepareCall("{call UPDATE_PASSWORD(?,?)}");
+            cs.setInt(1, id);
             cs.setString(2, pass);
-        }catch (SQLException e){}
+            ResultSet rs= cs.executeQuery();
+            Alert alert;
+            if (rs != null) {
+                alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setHeaderText(null);
+                alert.setTitle("Password");
+                alert.setContentText("Contraseña actualizada Correctamente");
+                alert.showAndWait();
+            }else {
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText(null);
+                alert.setTitle("Password");
+                alert.setContentText("NO! Se pudo Actualizar la contraseña");
+                alert.showAndWait();
+            }
+        }catch (SQLException e){
+            System.out.println("Error UpdatePass: "+e);
+        }
     }
 }

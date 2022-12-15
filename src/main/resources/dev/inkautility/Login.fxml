@@ -15,36 +15,37 @@
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="300.0" style="-fx-border-radius: 15;">
          <children>
-            <TextField id="inputEmail" fx:id="FEmail_L" layoutX="47.0" layoutY="177.0" prefHeight="23.0" prefWidth="159.0" promptText="Email" styleClass="inputLogin" stylesheets="@../../Assets/CSS/Styles.css">
-               <font>
-                  <Font name="Roboto" size="12.0" />
-               </font></TextField>
-            <PasswordField fx:id="FPass_L" layoutX="46.0" layoutY="219.0" prefHeight="23.0" prefWidth="159.0" promptText="Contraseña" stylesheets="@../../Assets/CSS/Styles.css">
-               <font>
-                  <Font name="Roboto" size="12.0" />
-               </font>
-            </PasswordField>
-            <Button fx:id="LoginButton" alignment="CENTER" contentDisplay="CENTER" layoutX="76.0" layoutY="272.0" mnemonicParsing="false" onAction="#loginAction" style="-fx-background-radius: 8px;" styleClass="buttonLogin" stylesheets="@../../Assets/CSS/Styles.css" text="Iniciar Sesion" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
-               <font>
-                  <Font name="Roboto" size="14.0" />
-               </font></Button>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="42.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="40.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <viewport>
                   <Rectangle2D />
                </viewport>
                <image>
                   <Image url="@../../Assets/INKALOGO-black.png" />
                </image></ImageView>
-            <Label fx:id="Recovery_L" layoutX="47.0" layoutY="312.0" stylesheets="@../../Assets/CSS/Styles.css" text="¿Olvidaste tu contraseña?">
+            <TextField id="inputEmail" fx:id="FEmail_L" layoutX="42.0" layoutY="160.0" prefHeight="23.0" prefWidth="159.0" promptText="Email" styleClass="inputLogin" stylesheets="@../../Assets/CSS/Styles.css">
+               <font>
+                  <Font name="Roboto" size="12.0" />
+               </font></TextField>
+            <PasswordField fx:id="FPass_L" layoutX="42.0" layoutY="200.0" prefHeight="23.0" prefWidth="159.0" promptText="Contraseña" stylesheets="@../../Assets/CSS/Styles.css">
+               <font>
+                  <Font name="Roboto" size="12.0" />
+               </font>
+            </PasswordField>
+            <Button fx:id="LoginButton" alignment="CENTER" contentDisplay="CENTER" layoutX="71.0" layoutY="293.0" mnemonicParsing="false" onAction="#loginAction" style="-fx-background-radius: 8px;" styleClass="buttonLogin" stylesheets="@../../Assets/CSS/Styles.css" text="Iniciar Sesion" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
+               <font>
+                  <Font name="Roboto" size="14.0" />
+               </font></Button>
+            <Label fx:id="Recovery_L" layoutX="41.0" layoutY="230.0" onMouseClicked="#UpdatePass" stylesheets="@../../Assets/CSS/Styles.css" text="¿Olvidaste tu contraseña?" textFill="#00000069">
                <font>
                   <Font name="Roboto" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="Register_L" accessibleRole="BUTTON" layoutX="81.0" layoutY="350.0" onMouseClicked="#registerAction" text="REGISTRATE">
+            <Label fx:id="Register_L" accessibleRole="BUTTON" alignment="CENTER" contentDisplay="CENTER" layoutX="122.0" layoutY="368.0" onMouseClicked="#registerAction" text="Regístrate" textAlignment="CENTER">
                <font>
                   <Font name="Roboto" size="14.0" />
                </font>
             </Label>
+            <Label layoutX="49.0" layoutY="369.0" text="¿Sin cuenta? " textFill="#0000006c" />
          </children>
       </AnchorPane>
    </children>

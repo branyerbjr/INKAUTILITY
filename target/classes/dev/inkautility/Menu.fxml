@@ -15,7 +15,7 @@
          <tabs>
             <Tab closable="false" text="Perfil">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #4dabf7;">
                      <children>
                         <ImageView fitHeight="114.0" fitWidth="105.0" layoutX="232.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -24,6 +24,12 @@
                         </ImageView>
                         <Label fx:id="nameText_M" alignment="CENTER" contentDisplay="CENTER" layoutX="200.0" layoutY="102.0" prefHeight="17.0" prefWidth="179.0" text="Label" />
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="156.0" prefHeight="17.0" prefWidth="82.0" text="DISPOSITIVO" textAlignment="CENTER" />
+                        <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="303.0" layoutY="383.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Assets/Icons/logout_white.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="BtnBack_M" layoutX="229.0" layoutY="387.0" onMouseClicked="#Back" text="Cerrar Sesión" />
                      </children></AnchorPane>
                </content>
             </Tab>

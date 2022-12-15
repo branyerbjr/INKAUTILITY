@@ -1,0 +1,9 @@
+.buttonRecovery{
+    -fx-background-color: #3CA9FF;
+    text-align: center;
+    -fx-cursor: pointer;
+    -fx-outline: none;
+    -fx-border: none;
+    -fx-border-radius: 15px;
+}
+.buttonRecovery:hover {-fx-background-color: #1C82D3}
